@@ -1,20 +1,21 @@
 class BooksController < ApplicationController
-  def new
-    @book = Book.new
+    # 上・投稿一覧/下・投稿機能
+  def index
+    @books = Book.all.order(id: :asc)
+    @book =Book.new
   end
+
   # 保存機能・バリデーション
   def create
-    @book = Book.new(book_params)
-    if @book.save
-    redirect_to book_path(@book.id)
+    book = Book.new(book_params)
+    if book.save
+      flash[:notice] = "Book was successfully created"
+      redirect_to book_path(book.id)
     else
-    render :new
+      render :index
     end
   end
-  # 投稿一覧
-  def index
-    @books = Book.all
-  end
+
   # 詳細画面
   def show
     @book = Book.find(params[:id])
@@ -27,6 +28,7 @@ class BooksController < ApplicationController
   def update
     book = Book.find(params[:id])
     book.update(book_params)
+    flash[:notice] = flash[:notice] = "Book was successfully update"
     redirect_to book_path(book.id)
   end
   # 削除機能
