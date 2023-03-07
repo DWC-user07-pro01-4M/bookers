@@ -5,7 +5,7 @@
 <h2>Body</h2>
 
 <span>
-  <%= link_to book.title, "/books/#{book.id}" %>
+  <%= link_to book.title, book_path(list.id) %>
 </span>
 
 <p>Show</p><p>Edit</p><p>Destroy</p>

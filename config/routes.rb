@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # 一覧画面
   get 'books' => 'books#index'
   # 詳細画面
-  get 'books/:id' => 'books#show'
+  get 'books/:id' => 'books#show', as: 'book'
 
   get 'books/edit'
   get '/top' => 'homes#top'
