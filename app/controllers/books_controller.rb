@@ -9,7 +9,7 @@ class BooksController < ApplicationController
   def create
     book = Book.new(book_params)
     if book.save
-      flash[:notice] = "Book was successfully created"
+      flash[:notice] = "Book was successfully created."
       redirect_to book_path(book.id)
     else
       render :index
@@ -18,23 +18,24 @@ class BooksController < ApplicationController
 
   # 詳細画面
   def show
-    @book = Book.find(params[:id])
+    book = Book.find(params[:id])
   end
   # 編集画面
   def edit
-    @book = Book.find(params[:id])
+    book = Book.find(params[:id])
   end
   # 更新機能
   def update
     book = Book.find(params[:id])
     book.update(book_params)
-    flash[:notice] = flash[:notice] = "Book was successfully update"
+    flash[:notice] = flash[:notice] = "Book was successfully updated."
     redirect_to book_path(book.id)
   end
   # 削除機能
   def destroy
-    book = Book.find(params[:id])
-    book.destroy
+    books = Book.find(params[:id])
+    books.destroy
+    flash[:notice]  = "Book was successfully destroyed."
     redirect_to '/books'
   end
   # ストロングパラメータ
