@@ -20,6 +20,12 @@ class BooksController < ApplicationController
   def edit
     @book = Book.find(params[:id])
   end
+  # 更新機能
+  def update
+    book = Book.find(params[:id])
+    book.update(book_params)
+    redirect_to book_path(book.id)
+  end
   # ストロングパラメータ
   private
   def book_params
