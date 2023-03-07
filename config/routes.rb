@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   post 'books' => 'books#create'
   # 一覧画面
   get 'books' => 'books#index'
-  get 'books/show'
+  # 詳細画面
+  get 'books/:id' => 'books#show'
+
   get 'books/edit'
   get '/top' => 'homes#top'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
