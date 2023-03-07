@@ -26,6 +26,12 @@ class BooksController < ApplicationController
     book.update(book_params)
     redirect_to book_path(book.id)
   end
+  # 削除機能
+  def destroy
+    book = Book.find(params[:id])
+    book.destroy
+    redirect_to '/books'
+  end
   # ストロングパラメータ
   private
   def book_params
