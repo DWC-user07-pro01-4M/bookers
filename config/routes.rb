@@ -6,8 +6,9 @@ Rails.application.routes.draw do
   get 'books' => 'books#index'
   # 詳細画面
   get 'books/:id' => 'books#show', as: 'book'
+  # 編集機能
+  get 'books/:id/edit' => 'books#edit', as: 'edit_book'
 
-  get 'books/edit'
   get '/top' => 'homes#top'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -8,16 +8,17 @@ class BooksController < ApplicationController
     book.save
     redirect_to book_path(book.id)
   end
-
+  # 投稿一覧
   def index
     @books = Book.all
   end
-
+  # 詳細画面
   def show
     @book = Book.find(params[:id])
   end
-
+  # 編集画面
   def edit
+    @book = Book.find(params[:id])
   end
   # ストロングパラメータ
   private
