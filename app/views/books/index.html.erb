@@ -8,6 +8,8 @@
   <%= link_to book.title, book_path(book.id) %>
 </span>
 
-<p>Show</p><p>Edit</p><p>Destroy</p>
+<%= link_to "Show", show_book_path(@book.id) %>
+<%= link_to "Edit", edit_book_path(@book.id) %>
+<%= link_to "Destroy", destroy_book_path(@book.id), method: :delete, "data-confirm" => "Are you sure？" %>
 
 <% end %>
