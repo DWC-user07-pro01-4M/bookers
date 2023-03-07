@@ -4,7 +4,9 @@
 <h2>Title</h2>
 <h2>Body</h2>
 
-<span><%= book.title %></span>
+<span>
+  <%= link_to book.title, "/books/#{book.id}" %>
+</span>
 
 <p>Show</p><p>Edit</p><p>Destroy</p>
 
