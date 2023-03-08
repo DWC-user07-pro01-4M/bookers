@@ -1,31 +1,28 @@
 <!--一覧画面-->
-<h1>Books</h1>
-<% @books.each do |book| %>
+<body>
+    <h1>Books</h1>
+    <% @books.each do |book| %>
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Body</th>
+                    <th colspan = "3"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><%= book.title %></td>
 
-<table>
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Body</th>
-            <th colspan="3"></th>
-        </tr>
-    </thead>
+                    <td><%= book.body %></td>
 
-    <tbody>
-    <span>
-      <%= link_to book.title, book_path(book.id) %>
-    </span>
-    <span>
-      <%= link_to book.body, book_path(book.id) %>
-    </span>
-
-      <%= link_to "Show", book_path(book.id) %>
-      <%= link_to "Edit", edit_book_path(book.id) %>
-      <%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "Are you sure？" %>
-    </tbody>
-    <% end %>
-
-</table>
+                    <td><%= link_to "Show", book_path(book.id) %></td>
+                    <td><%= link_to "Edit", edit_book_path(book.id) %></td>
+                    <td><%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "Are you sure？" %></td>
+                </tr>
+            </tbody>
+        </table>
+<% end %>
 
 <!--投稿機能-->
 <h2>New book</h2>
@@ -48,3 +45,4 @@
 
 <%= f.submit 'Create Book' %>
 <% end %>
+</body>
