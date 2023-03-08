@@ -18,12 +18,12 @@ class BooksController < ApplicationController
 
   # 詳細画面
   def show
-    @book = Book.find(params[:id])
+    @books = Book.find(params[:id])
     @book = Book.new
   end
   # 編集画面
   def edit
-    @book = Book.find(params[:id])
+    @books = Book.find(params[:id])
   end
   # 更新機能
   def update

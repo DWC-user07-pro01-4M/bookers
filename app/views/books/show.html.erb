@@ -1,9 +1,9 @@
 <p><strong>Title</strong></p>
-<p><%= @book.title %></p>
+<p><%= Book.find(params[:id]).title %></p>
 
 <p><strong>Body</strong></p>
-<p><%= @book.body %></p>
+<p><%= @books.body %></p>
 
-<%= link_to "Edit", edit_books_path(book.id) %>
+<%= link_to "Edit", edit_book_path(@books.id) %>
 <p>|</p>
 <%= link_to "Back", books_path %>
