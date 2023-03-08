@@ -1,3 +1,4 @@
+<!--一覧画面-->
 <h1>Books</h1>
 <% @books.each do |book| %>
 
@@ -19,6 +20,7 @@
 
 <% end %>
 
+<!--投稿機能-->
 <h2>New book</h2>
 <!--バリデーションエラーメッセージ-->
 <% if @book.errors.any? %>
