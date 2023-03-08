@@ -39,6 +39,9 @@ td{
 a{
   color: #000;
 }
+a:visited{
+  color: #666;
+}
 /*投稿機能*/
 .field,.actions{
   margin-bottom: 10px;
