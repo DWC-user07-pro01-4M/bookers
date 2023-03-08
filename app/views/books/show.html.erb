@@ -1,4 +1,7 @@
 <body>
+
+    <p id="notice"><%= flash[:notice] %></p>
+
     <p>
         <strong>Title:</strong>
             <%= Book.find(params[:id]).title %>
