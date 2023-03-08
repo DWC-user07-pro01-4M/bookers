@@ -2,23 +2,30 @@
 <h1>Books</h1>
 <% @books.each do |book| %>
 
-<h2>Title</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Body</th>
+            <th colspan="3"></th>
+        </tr>
+    </thead>
 
-<span>
-  <%= link_to book.title, book_path(book.id) %>
-</span>
+    <tbody>
+    <span>
+      <%= link_to book.title, book_path(book.id) %>
+    </span>
+    <span>
+      <%= link_to book.body, book_path(book.id) %>
+    </span>
 
-<h2>Body</h2>
+      <%= link_to "Show", book_path(book.id) %>
+      <%= link_to "Edit", edit_book_path(book.id) %>
+      <%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "Are you sure？" %>
+    </tbody>
+    <% end %>
 
-<span>
-  <%= link_to book.body, book_path(book.id) %>
-</span>
-
-<%= link_to "Show", book_path(book.id) %>
-<%= link_to "Edit", edit_book_path(book.id) %>
-<%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "Are you sure？" %>
-
-<% end %>
+</table>
 
 <!--投稿機能-->
 <h2>New book</h2>
