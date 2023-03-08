@@ -21,9 +21,8 @@ body{
   font-size: 13px;
   line-height: 18px;
   margin: 33px;
-  display: block;
 }
-body p{
+p,ol,ul,td{
   font-size: 13px;
   line-height: 18px;
   margin: 33px;
