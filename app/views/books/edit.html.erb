@@ -1,8 +1,18 @@
 <body>
 
-    <p id="notice"><%= flash[:notice] %></p>
+    <!--バリデーションエラーメッセージ-->
+<% if @book.errors.any? %>
+<%= @book.errors.count %>errors prohibited this book from being saved:
+<ul>
+ <% @book.errors.full_messages.each do |message| %>
+ <li><%= message %></li>
+ <% end %>
+</ul>
+<% end %>
 
 <h1>Editing Book</h1>
+
+<p id="notice"><%= flash[:notice] %></p>
 
 <%= form_with model: @books, url: book_path(@books.id), method: :patch do |f| %>
 

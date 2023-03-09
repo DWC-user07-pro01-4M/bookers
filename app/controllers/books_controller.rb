@@ -25,13 +25,18 @@ class BooksController < ApplicationController
   # 編集画面
   def edit
     @books = Book.find(params[:id])
+    @book = Book.new
   end
   # 更新機能
   def update
     @book = Book.find(params[:id])
     @book.update(book_params)
-    flash[:notice] = "Book was successfully updated."
-    redirect_to book_path(@book)
+    if @book.save
+       flash[:notice] = "Book was successfully updated."
+       redirect_to book_path(@book.id)
+    else
+      render :edit
+    end
   end
   # 削除機能
   def destroy
